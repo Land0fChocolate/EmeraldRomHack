@@ -11,3 +11,4 @@ A rom hack of Pokemon Emerald using pokeemerald decompilation as its base: https
     - Remake Pokemon ability base stats
 - Remake Pokemon moves and add the later gen ones
 - Add physical/special tag to Pokemon moves in menus
+
