@@ -5629,14 +5629,14 @@ u16 SpeciesToCryId(u16 species)
     return gSpeciesIdToCryId[species - (SPECIES_TREECKO - 1)];
 }
 
-#define DRAW_SPINDA_SPOTS                                                       \
+#define DRAW_SPINDA_SPOTSB                                                      \
 {                                                                               \
     int i;                                                                      \
     for (i = 0; i < 4; i++)                                                     \
     {                                                                           \
         int j;                                                                  \
-        u8 x = gSpindaSpotGraphics[i].x + ((personality & 0x0F) - 8);           \
-        u8 y = gSpindaSpotGraphics[i].y + (((personality & 0xF0) >> 4) - 8);    \
+        u8 x = gSpindaSpotGraphics[i].x + ((personality & 0x0F) - 12);           \
+        u8 y = gSpindaSpotGraphics[i].y + (((personality & 0xF0) >> 4) + 56);    \
                                                                                 \
         for (j = 0; j < 16; j++)                                                \
         {                                                                       \
@@ -5674,20 +5674,10 @@ u16 SpeciesToCryId(u16 species)
     }                                                                           \
 }
 
-// Same as DrawSpindaSpots but attempts to discern for itself whether or
-// not it's the front pic.
-static void DrawSpindaSpotsUnused(u16 species, u32 personality, u8 *dest)
-{
-    if (species == SPECIES_SPINDA
-        && dest != gMonSpritesGfxPtr->sprites.ptr[B_POSITION_PLAYER_LEFT]
-        && dest != gMonSpritesGfxPtr->sprites.ptr[B_POSITION_PLAYER_RIGHT])
-        DRAW_SPINDA_SPOTS;
-}
-
 void DrawSpindaSpots(u16 species, u32 personality, u8 *dest, bool8 isFrontPic)
 {
     if (species == SPECIES_SPINDA && isFrontPic)
-        DRAW_SPINDA_SPOTS;
+        DRAW_SPINDA_SPOTSB;
 }
 
 void EvolutionRenameMon(struct Pokemon *mon, u16 oldSpecies, u16 newSpecies)
