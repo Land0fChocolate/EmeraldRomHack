@@ -1,3 +1,5 @@
+Will discontinue this as other developers have implemented features that I have planned. Will work on https://github.com/Land0fChocolate/NewEmeraldRomHack from now on.
+
 # EmeraldRomHack
 
 A rom hack of Pokemon Emerald using pokeemerald decompilation as its base: https://github.com/pret/pokeemerald
